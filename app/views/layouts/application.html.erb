@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>コグログ</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<!-- ====== /ヘッダー領域 ===== -->
+<!-- ■■ヘッダー■■ -->
+<div class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">コグログ</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="" style="margin-left: 20px;">コース</a></li>
+      <li><a href="" >マップ</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="">コース投稿</a></li>
+      <li><a href="">ログ記録</a></li>
+      <li><a href="">マイページ</a></li>
+    </ul>
+  </div>
+</div>
+    <!-- ■■ヘッダー〆■■ -->
+    <!-- ■■モーダル■■ -->
+    <!-- ■■モーダル〆■■ -->
+<!-- ====== /コンテンツ領域 ===== -->
+<div class="container">
+
+  <%= yield %>
+
+</div>
+
+</body>
+</html>
