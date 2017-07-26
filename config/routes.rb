@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'reports#index'
-  resources :reports, only: [:index, :new, :create]
+  root 'courses#index'
+  resources :courses, only: [:index, :new, :create]
 end
