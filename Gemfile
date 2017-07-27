@@ -46,3 +46,8 @@ group :development do
 end
 
 gem 'pry-rails'
+gem 'devise'
+gem 'kaminari'
+gem 'paperclip'
+
+

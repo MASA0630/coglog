@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>コグログ</title>
+  <title>コグログ〜世界中を自転車で楽しもう！〜</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -22,7 +22,11 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="courses/new">コース投稿</a></li>
       <li><a href="">ログ記録</a></li>
-      <li><a href="">マイページ</a></li>
+      <li><%= link_to 'マイページ', "#" if user_signed_in? %></li>
+      <li><%= link_to 'ログイン', "/users/sign_in" unless user_signed_in? %></li>
+      <li><%= link_to '新規登録', "/users/sign_up" unless user_signed_in? %></li>
+      <li><%= link_to 'ログアウト', "/users/sign_out", method: :delete if user_signed_in? %></li>
+      <li><a href=""><%= current_user.nickname if user_signed_in? %></a></li>
     </ul>
   </div>
 </div>
