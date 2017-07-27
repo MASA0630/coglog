@@ -14,3 +14,26 @@
  *= require_tree .
  *= require_self
  */
+
+
+/*仮の色付けクラス*/
+.color1 {
+  background-color: limegreen;
+}
+
+.color2 {
+  background-color: skyblue;
+}
+
+.color3 {
+  background-color: orange;
+}
+
+.color4 {
+  background-color: gray;
+}
+
+.color5 {
+  background-color: pink;
+}
+
