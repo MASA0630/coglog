@@ -49,5 +49,5 @@ gem 'pry-rails'
 gem 'devise'
 gem 'kaminari'
 gem 'paperclip'
-
+gem 'jp_prefecture'
 
