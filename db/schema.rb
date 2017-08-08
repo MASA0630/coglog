@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807102013) do
+ActiveRecord::Schema.define(version: 20170808115450) do
+
+  create_table "bike_types", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "course_bike_types", force: :cascade do |t|
+    t.integer  "course_id",    limit: 4
+    t.integer  "bike_type_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "course_bike_types", ["bike_type_id"], name: "index_course_bike_types_on_bike_type_id", using: :btree
+  add_index "course_bike_types", ["course_id"], name: "index_course_bike_types_on_course_id", using: :btree
+
+  create_table "course_ride_themes", force: :cascade do |t|
+    t.integer  "course_id",     limit: 4
+    t.integer  "ride_theme_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "course_ride_themes", ["course_id"], name: "index_course_ride_themes_on_course_id", using: :btree
+  add_index "course_ride_themes", ["ride_theme_id"], name: "index_course_ride_themes_on_ride_theme_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.text     "title",           limit: 65535
@@ -23,6 +49,12 @@ ActiveRecord::Schema.define(version: 20170807102013) do
     t.string   "prefecture_code", limit: 255
     t.integer  "physical_level",  limit: 4
     t.integer  "updown",          limit: 4
+  end
+
+  create_table "ride_themes", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,4 +76,8 @@ ActiveRecord::Schema.define(version: 20170807102013) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "course_bike_types", "bike_types"
+  add_foreign_key "course_bike_types", "courses"
+  add_foreign_key "course_ride_themes", "courses"
+  add_foreign_key "course_ride_themes", "ride_themes"
 end
