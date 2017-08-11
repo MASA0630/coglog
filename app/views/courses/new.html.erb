@@ -1,0 +1,70 @@
+<div class="contents row">
+  <%= form_for(@course) do |f| %>
+    <div class="form-group">
+      <%= f.label :タイトル, style: '' %>
+      <%= f.text_area :title, placeholder: '淀川サイクリング', style: '' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :画像, style: '' %>
+      <%= f.text_area :image, placeholder: '画像リンクアドレス', style: '' %>
+<!--       <%= f.file_field :data %> -->
+    </div>
+    <div class="form-group">
+      <%= f.label :テキスト, style: '' %>
+      <%= f.text_area :text, placeholder: '風が強かったけど、気持ちよく走れた', style: 'cols: 30; rows: 10;' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :都道府県, style: '' %>
+      <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+    </div>
+    <div class="col10 push1">
+      <%= button_tag type: "submit", class: "btn btn--block" do %>
+        投稿する<i class="icon-arrow-right"></i>
+      <% end %>
+    </div>
+
+    <div class="selectbox_group">
+
+      <div class="selectbox_first">
+        <div class="field">
+          <h4><%= f.label :"テーマ・スタイル" %></h4>
+          <%= collection_check_boxes(:post, :ride_theme_ids, RideTheme.all, :id, :name ) do |t|  %>
+            <% t.label { t.check_box + t.text } %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="selectbox">
+        <div class="field">
+          <h4><%= f.label :"自転車の種類" %></h4>
+          <%= collection_check_boxes(:post, :bike_type_ids, BikeType.all, :id, :name ) do |t|  %>
+            <% t.label { t.check_box + t.text } %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="selectbox">
+        <h4>体力レベル</h4>
+        <div class="form-group" >
+          <label><%= f.radio_button :physical_level, "1" %>らくらく</label>
+          <label><%= f.radio_button :physical_level, "2" %>ふつう</label>
+          <label><%= f.radio_button :physical_level, "3" %>それなりに</label>
+          <label><%= f.radio_button :physical_level, "4" %>ハード</label>
+        </div>
+      </div>
+
+      <div class="selectbox">
+        <h4>アップダウン</h4>
+        <div class="form-group" >
+          <label><%= f.radio_button :updown, "1" %>少ない</label>
+          <label><%= f.radio_button :updown, "2" %>普通</label>
+          <label><%= f.radio_button :updown, "3" %>多い</label>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  <% end %>
+
+</div>
+
+
