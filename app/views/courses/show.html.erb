@@ -1,0 +1,42 @@
+<div style="padding: 0 150px 0;">
+  <img src="<%= @course.image %>"><br>
+
+  <div class="course_detail_first col-xs-12">
+    <h3 class="col-xs-10 color1" ><%= @course.title %></h3>
+    <div class="col-xs-2">
+      <button name="nice" type="button">
+        <strong>ナイス!</strong>
+      </button>
+      <button name="favorite" type="button">
+        <strong>行きたい!</strong>
+      </button>
+    </div>
+  </div>
+
+  <div class="course_detail_second col-xs-12">
+    <div class="col-xs-2 color3" >
+      <%= @pref.name %>
+    </div>
+    <div class="col-xs-8 color2" >
+      タグデータ
+    </div>
+    <div class="col-xs-2 color5">
+      <a href="/users/<%= @course.user_id %>"><%= @course.user.nickname %></a><br>
+    ユーザーデータ
+    </div>
+  </div>
+
+  -----地図-----<br><br><br>
+
+  <div class="color4">
+    <%= simple_format(@course.text) %>
+  </div>
+  <br><br><br>
+
+  -----写真-----<br>
+  -----写真テキスト-----<br><br><br>
+
+  -----コメント-----<br><br><br>
+
+  -----レポート-----<br><br><br>
+</div>

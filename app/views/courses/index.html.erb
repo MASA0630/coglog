@@ -1,0 +1,21 @@
+<!-- ■■検索■■ -->
+<div id="search" class="col-xs-2">
+検索「      」<br>
+検索条件１・・・<br>
+検索条件２・・・<br>
+検索条件３・・・
+</div>
+
+<!-- ■■投稿■■ -->
+<div id="courses" class="col-xs-10">
+
+  <h2>投稿一覧</h2>
+   <div class="course-wrapper">
+    <% @courses.each do |course| %>
+      <%= render partial: "course", locals: { course: course } %>
+    <% end %>
+  </div>
+  <div class="paginate col-xs-10">
+    <%= paginate(@courses) %>
+  </div>
+</div>

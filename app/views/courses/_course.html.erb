@@ -1,0 +1,18 @@
+<article class="col-xs-4 article-height thumbnail">
+  <%= link_to "/courses/#{course.id}" do %>
+    <img src="<%= course.image %>" style="height: 250px;">
+    <div class="caption">
+      <h4 style="white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;"><%= course.title %></h4>
+      <a href="/users/<%= course.user_id %>" class="color2" ><%= course.user.nickname %></a><br>
+      <div class="color1" ><%= truncate(course.text, length: 40) %></div>
+
+      <div class="">
+        <% if user_signed_in? && current_user.id == course.user_id %>
+            <%= link_to '削除', "/courses/#{course.id}", method: :delete %>
+            <%= link_to '編集', "/courses/#{course.id}/edit", method: :get %>
+        <% end %>
+      </div>
+
+    </div>
+  <% end %>
+</article>
