@@ -5,7 +5,8 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @course = Course.new
+    @course = Course.includes(:user).new
+    @course.images.build
   end
 
   def show
@@ -35,7 +36,7 @@ class CoursesController < ApplicationController
   private
   def course_params
     post_hash = params.require(:post).permit(ride_theme_ids: [], bike_type_ids: [] ).merge(user_id: current_user.id)
-    params.require(:course).permit(:title, :image, :text, :prefecture_code, :physical_level, :updown, ride_theme_ids: [], bike_type_ids: [] ).merge(post_hash)
+    params.require(:course).permit(:title, :text, :prefecture_code, :physical_level, :updown, ride_theme_ids: [], bike_type_ids: [], images_attributes: [:filename, :text, :mainimage, :user_id] ).merge(post_hash)
   end
 
 end

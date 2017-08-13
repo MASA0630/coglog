@@ -50,4 +50,6 @@ gem 'devise'
 gem 'kaminari'
 gem 'paperclip'
 gem 'jp_prefecture'
+gem 'carrierwave'
+gem 'fog'
 
