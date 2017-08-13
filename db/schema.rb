@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808115450) do
+ActiveRecord::Schema.define(version: 20170812124832) do
 
   create_table "bike_types", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -42,13 +42,22 @@ ActiveRecord::Schema.define(version: 20170808115450) do
   create_table "courses", force: :cascade do |t|
     t.text     "title",           limit: 65535
     t.text     "text",            limit: 65535
-    t.text     "image",           limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",         limit: 4
     t.string   "prefecture_code", limit: 255
     t.integer  "physical_level",  limit: 4
     t.integer  "updown",          limit: 4
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "filename",   limit: 255
+    t.text     "text",       limit: 65535
+    t.integer  "mainimage",  limit: 4
+    t.integer  "course_id",  limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ride_themes", force: :cascade do |t|

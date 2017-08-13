@@ -1,6 +1,8 @@
 <article class="col-xs-4 article-height thumbnail">
   <%= link_to "/courses/#{course.id}" do %>
-    <img src="<%= course.image %>" style="height: 250px;">
+<!--     <div style="height: 250px;">
+       image_tag course.image.filename
+    </div> -->
     <div class="caption">
       <h4 style="white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;"><%= course.title %></h4>
       <a href="/users/<%= course.user_id %>" class="color2" ><%= course.user.nickname %></a><br>
